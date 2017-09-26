@@ -1,3 +1,4 @@
+//It is hard to say,I still need to think about why is this calculation
 #include <iostream>
 using namespace std;
 int n,k,t;

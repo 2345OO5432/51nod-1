@@ -1,15 +1,13 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-int p,a,s;
+int a,s,p;
 void deal()
 {
-	unsigned long long temp=a;
-	while (1)
+	unsigned long long temp=a,limit=(unsigned long long)p*p;
+	while (temp<=limit)
 	{
-		unsigned long long x=(unsigned long long)sqrt(temp);
-		if (x>p)
-			break;
+		unsigned long long x=(int)sqrt(temp);
 		if (x*x==temp)
 		{
 			++s;

@@ -4,12 +4,6 @@
 using namespace std;
 char s[200005];
 int n,f[200005];
-inline int min(int a,int b)
-{
-	if (a>=b)
-		return a;
-	return b;
-}
 void deal()
 {
 	int right=0,pos=0;

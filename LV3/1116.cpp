@@ -1,23 +1,20 @@
 #include <stdio.h>
 #include <string.h>
 #define max(a,b) ((a)>(b)?(a):(b))
-char s[100001];
-int n,sum,k=1;
+int n,sum,k=1,s;
 int main()
 {
-    scanf("%s",s);
-    int n=strlen(s);
-    for (int i=0;i<n;++i)
+    while ((s=getchar())!='\n')
     {
-        if (s[i]>='A')
+        if (s>='A')
         {
-            k=max(s[i]-'A'+10,k);
-            sum+=s[i]-'A'+10;
+            k=max(s-'A'+10,k);
+            sum+=s-'A'+10;
         }
         else
         {
-            k=max(k,s[i]-'0');
-            sum+=s[i]-'0';
+            k=max(k,s-'0');
+            sum+=s-'0';
         }
     }
     for (int i=k;i<36;++i)

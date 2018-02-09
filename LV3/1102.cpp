@@ -1,15 +1,14 @@
 #include <stdio.h>
-#define max(a,b) ((a)>(b)?(a):(b))
+#include <algorithm>
 #define maxn 50000+1
-int n,f[maxn];
-long long a[maxn],ans,s;
+int n,f[maxn],a[maxn],list[maxn];
+long long ans,s;
 int main()
 {
     scanf("%d",&n);
-    int list[maxn]={0};
     for (int i=1;i<=n;++i)
     {
-        scanf("%lld",&a[i]);
+        scanf("%d",&a[i]);
         while (a[list[list[0]]]>=a[i])
             --list[0];
         f[i]=i-list[list[0]]-1;
@@ -20,18 +19,13 @@ int main()
     {
         while (a[list[list[0]]]>=a[i])
             --list[0];
-        if (list[0]==0)
-        {
-            list[list[0]=1]=i;
-            f[i]+=n-i+1;
-        }
-        else
-        {
+        if (list[0])
             f[i]+=list[list[0]]-i;
-            list[++list[0]]=i;
-        }
-        s=a[i]*f[i];
-        ans=max(ans,s);
+        else
+            f[i]+=n-i+1;
+        list[++list[0]]=i;
+        s=(long long)a[i]*f[i];
+        ans=std::max(ans,s);
     }
     printf("%lld\n",ans);
     return 0;
